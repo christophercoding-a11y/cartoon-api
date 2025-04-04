@@ -6,14 +6,18 @@
             <% data.forEach(cartoon => { %>
                 <div class="col">
                     <div class="card h-100">
-                        <header class="card-header"><%= cartoon.title %></header>
-                        <img src="<%= cartoon.image %>" alt="<%= cartoon.title %>" class="card-img-top"
+                        <header class="card-header">
+                            <h2 class="card-title">
+                                <%= cartoon.title %>
+                            </h2>
+                        </header>
+                        <img src="<%= cartoon.image %>" alt="<%= cartoon.title %>" class="card-img-top">
                         <div class="card-body">
-                            <p class="card-text">Creators(s)</p>
+                            <p class="card-text">Creators(s):</p>
                             <ul class="list-unstyled creators-list">
                                 <% cartoon.creator.forEach(item => { %>
                                     <li class="list-item"><%= item %></li>
-                                <%}) %>
+                                <% }) %>
                             </ul>
                         </div>
                         
