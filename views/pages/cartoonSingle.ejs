@@ -9,10 +9,17 @@
             <div class="col-5">
                 <nav class="navigation">
                     <ul class="pagination">
-                        <li class="page-item">
-                            <a href="/cartoons2D/<%= data.id - 1 %>" class="page-link">Previous</a>
-                            <a href="/cartoons2D/<%= data.id + 1 %>" class="page-link">Next</a>
-                        </li>
+                        <% if (data.id > 1) { %>
+                            <li class="page-item">
+                                <a href="/cartoons2D/<%= data.id - 1 %>" class="page-link">Previous</a>
+                            </li>
+                        <% } %>
+
+                        <% if (data.id < count) { %>
+                            <li class="page-item">
+                                <a href="/cartoons2D/<%= data.id + 1 %>" class="page-link">Next</a>
+                            </li>
+                        <% } %>
                     </ul>
                 </nav>
                 <ul class="stat-list list-group list-group-flush">
