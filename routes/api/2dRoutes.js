@@ -12,11 +12,30 @@ router.get('/', (req, res) => {
     const url = 'https://api.sampleapis.com/cartoons/cartoons2D'
 
     axios.get(url).then(response => {
-        console.log(response.data)
         res.render('pages/cartoons', {
             title: '2D Cartoons',
             name: '2D Cartoons',
             data: response.data
+        })
+    })
+})
+
+// single page
+// localhost:3000/cartoon2d/id
+
+router.get('/:id', (req, res)=> {
+    const id = req.params.id
+
+    const url = `https://api.sampleapis.com/cartoons/cartoons2D/${id}`
+
+    axios.get(url).then(resp => {
+
+        const data = resp.data
+        res.render('pages/cartoonSingle', {
+            title: data.title,
+            name: data.title,
+            data: data,
+            count
         })
     })
 })

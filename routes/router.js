@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const axios = require('axios')
 
 router.use(express.static('public'))
 
@@ -8,10 +9,17 @@ router.use('/cartoons2D', twoDRoutes)
 
 // home page
 router.get('/', (req, res) => {
-    res.render('pages/home', {
-        title: 'My Cartoons Website',
-        name: 'Cartoons'
-    })
+    let randomCartoon
+
+    axios.get('https://api.sampleapis.com/cartoons/cartoons2D')
+        .then(resp => {
+            randomCartoon = resp.data[Math.floor(Math.random()* resp.data.length)]
+            res.render('pages/home', {
+                title: 'My Cartoons Website',
+                name: 'Cartoons',
+                cartoon: randomCartoon
+            })
+        })
 })
 
 module.exports = router

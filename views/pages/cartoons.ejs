@@ -13,6 +13,7 @@
                         </header>
                         <img src="<%= cartoon.image %>" alt="<%= cartoon.title %>" class="card-img-top">
                         <div class="card-body">
+                            <p class="card-text"><%= cartoon.year %></p>
                             <p class="card-text">Creators(s):</p>
                             <ul class="list-unstyled creators-list">
                                 <% cartoon.creator.forEach(item => { %>
@@ -20,8 +21,9 @@
                                 <% }) %>
                             </ul>
                         </div>
-                        
-                        
+                        <div class="card-footer">
+                            <a href="/cartoons2D/<%= cartoon.id %>" class="card-footer link">view more</a>
+                            </div>
                     </div>
                 </div>
             <%}) %>
